@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.PathParam;
 import java.math.BigInteger;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class BookController {
@@ -38,4 +39,10 @@ public class BookController {
         return bookService.updateBookDetails(book);
     }
 
+    @GetMapping (value = "api/v1/book/{bookAuthor}/{bookCategory}")
+    public ResponseEntity<Book> getBookByAuthorCategory(@PathVariable ("bookAuthor") String bookAuthor,
+                                                    @PathVariable ("bookCategory") String bookCategory){
+        String uuidAsString = UUID.randomUUID().toString();
+        return bookService.getBookByAuthorCategory(bookAuthor,bookCategory,uuidAsString);
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -35,6 +36,30 @@ public class BookServiceImpl implements BookService{
         bookEntityFromUI.setId(bookEntity.getId());
         return ResponseEntity.ok(convertEntityToDomain(bookRepository.save(bookEntityFromUI)));
     }
+
+    @Override
+    public ResponseEntity<Book> getBookByAuthorCategory(String bookAuthor,String bookCategory , String uuidAsString) {
+
+//        Book book1 = getBookAuthor(bookAuthor);
+//        Book book2 = getBookCategory(bookCategory);
+        return ResponseEntity.ok(new Book());
+    }
+
+//    private Book getBookCategory(String bookCategory) {
+//        BookEntity bookEntity2 = bookRepository.findByBookCategory(bookCategory);
+//        Book book2 = new Book();
+//        if (null!=bookEntity2)
+//        book2.setBookCategory(bookEntity2.getBookCategory());
+//        return book2;
+//    }
+//
+//    private Book getBookAuthor(String bookAuthor) {
+//        BookEntity bookEntity1 = bookRepository.findByBookAuthor(bookAuthor);
+//        Book book1 = new Book();
+//        if (null!=bookEntity1)
+//        book1.setBookAuthor(bookEntity1.getBookAuthor());
+//        return book1;
+//    }
 
     private BookEntity convertDomainToEntity(Book book){
 
@@ -68,4 +93,6 @@ public class BookServiceImpl implements BookService{
         }
         return book;
     }
+
+
 }

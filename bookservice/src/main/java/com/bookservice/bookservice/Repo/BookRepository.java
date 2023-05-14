@@ -11,7 +11,10 @@ import java.math.BigInteger;
 @Repository
 public interface BookRepository extends CrudRepository<BookEntity, Long> {
     public BookEntity findByBookId(BigInteger bookId);
+    //public BookEntity findByBookAuthor(String bookAuthor);
+   // public BookEntity findByBookCategory(String bookCategory);
 
+    // add a method with book author and category using  native query
 
 }
 
